@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>Redirecting to WhatsApp</title>
+<style>
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      font-size: 10px;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: rgb(244, 246, 248);
+      font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      color: #212b36;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .ui-spinner {
+      -webkit-transform-origin: 2.2rem 2.2rem 2.2rem;
+      transform-origin: 2.2rem 2.2rem 2.2rem;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      display: inline-block;
+      height: 4.4rem;
+      width: 4.4rem;
+      -webkit-animation: ui-spinner-rotate 0.5s linear infinite;
+      animation: ui-spinner-rotate 0.5s linear infinite;
+      background-color: transparent;
+      border: 0.3rem solid #47c1bf;
+      border-left-color: transparent;
+      border-radius: 50%;
+    }
+
+    @-webkit-keyframes ui-spinner-rotate {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes ui-spinner-rotate {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+      }
+    }
+</style>
+<!-- Facebook Pixel Code -->
+<script>
+function uuid(){var r,n,t="";for(r=0;r<32;r++)n=16*Math.random()|0,8!=r&&12!=r&&16!=r&&20!=r||(t+="-"),t+=(12==r?4:16==r?3&n|8:n).toString(16);return t}
+</script>
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '{{YOUR FACEBOOK PIXEL ID}}');
+  fbq('track', 'AddToCart');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id={{YOUR FACEBOOK PIXEL ID}}&ev=AddToCart&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ YOUR GOOGLE ANALYTICS PIXEL ID}}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ YOUR GOOGLE ANALYTICS PIXEL ID}}');
+  gtag('require', 'ecommerce');
+  gtag('ecommerce:addTransaction', {'id': uuid()});
+</script>
+
+</head>
+<body>
+  <div class="wrapper">
+    <span role="img" class="ui-spinner"></span>
+  </div>
+  <form action="https:/api.whatsapp.com/send" id="whatsapp-conversion-tracking" method="GET">
+      <input type="hidden" name="phone" value="56999999999" />
+  </form>
+  <script>document.getElementById("whatsapp-conversion-tracking").submit();</script>
+</body>
+</html>
